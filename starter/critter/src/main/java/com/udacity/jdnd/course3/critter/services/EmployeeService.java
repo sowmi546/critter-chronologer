@@ -7,6 +7,7 @@ import com.udacity.jdnd.course3.critter.user.EmployeeSkill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 
 
 @Service
+@Transactional
 public class EmployeeService {
 
     @Autowired

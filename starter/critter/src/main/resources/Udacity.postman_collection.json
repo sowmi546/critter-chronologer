@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "3da4eeec-6238-471f-ab55-ce0d742fa76e",
+		"_postman_id": "571b3f27-df12-4bd0-98f3-a5fcf0da194e",
 		"name": "Udacity",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2206460"
 	},
 	"item": [
 		{
@@ -55,7 +56,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"type\": \"CAT\",\r\n  \"name\": \"Kilo\",\r\n  \"birthDate\": \"2019-12-16T04:43:57.995Z\",\r\n  \"notes\": \"HI KILO\"\r\n, \"ownerId\": \"1\"\n}",
+					"raw": "{\r\n  \"type\": \"CAT\",\r\n  \"name\": \"Kilo\",\r\n  \"birthDate\": \"2019-12-16T04:43:57.995Z\",\r\n  \"notes\": \"HI KILO\"\r\n, \"ownerId\": \"2\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -113,6 +114,41 @@
 			"response": []
 		},
 		{
+			"name": "Create New Schedule",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n  \"employeeIds\":[\"17\"],\r\n  \"petIds\" : [\"7\"],\r\n  \"date\" : \"2019-12-17\",\r\n  \"activities\" : [\"PETTING\", \"FEEDING\"]\r\n\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/schedule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"schedule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Add Employee Schedule",
 			"request": {
 				"method": "PUT",
@@ -134,7 +170,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/user/employee/1",
+					"raw": "http://localhost:8082/user/employee/17",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -143,7 +179,7 @@
 					"path": [
 						"user",
 						"employee",
-						"1"
+						"17"
 					]
 				}
 			},
@@ -251,7 +287,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/schedule/pet/1",
+					"raw": "http://localhost:8082/schedule/pet/7",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -260,7 +296,7 @@
 					"path": [
 						"schedule",
 						"pet",
-						"1"
+						"7"
 					]
 				}
 			},
@@ -291,7 +327,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/schedule/employee/2",
+					"raw": "http://localhost:8082/schedule/employee/17",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -300,7 +336,7 @@
 					"path": [
 						"schedule",
 						"employee",
-						"2"
+						"17"
 					]
 				}
 			},
@@ -331,7 +367,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/schedule/employee/2",
+					"raw": "http://localhost:8082/schedule/customer/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -339,7 +375,7 @@
 					"port": "8082",
 					"path": [
 						"schedule",
-						"employee",
+						"customer",
 						"2"
 					]
 				}
@@ -410,15 +446,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/user/customer",
+					"raw": "http://localhost:8082/pet",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8082",
 					"path": [
-						"user",
-						"customer"
+						"pet"
 					]
 				}
 			},
@@ -449,7 +484,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/pet/owner/1",
+					"raw": "http://localhost:8082/pet/owner/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -458,7 +493,7 @@
 					"path": [
 						"pet",
 						"owner",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -489,7 +524,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/user/customer/pet/1",
+					"raw": "http://localhost:8082/user/customer/pet/7",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -499,12 +534,11 @@
 						"user",
 						"customer",
 						"pet",
-						"1"
+						"7"
 					]
 				}
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
